@@ -31,18 +31,33 @@ public class RoomController {
         return new RoomDto(room);
     }
 
-    @PostMapping(value = "/switch/light", consumes = "application/json")
-    public RoomDto switchLight(@RequestBody Long roomId){
+    @PostMapping(value = "/{roomId}/switch/light", consumes = "application/json")
+    public RoomDto switchLight(@PathVariable Long roomId){
         Room room = roomDao.getOne(roomId);
         room.getLight().switchStatus();
         return new RoomDto(room);
     }
 
-    @PostMapping(value = "/switch/ringer", consumes = "application/json")
-    public RoomDto switchRinger(@RequestBody Long roomId){
+    @PostMapping(value = "/{roomId}/switch/ringer", consumes = "application/json")
+    public RoomDto switchRinger(@PathVariable Long roomId){
         Room room = roomDao.getOne(roomId);
         room.getNoise().switchStatus();
         return new RoomDto(room);
+    }
+
+
+    @PostMapping(value = "/{roomId}/switch/ringer/list", consumes = "application/json")
+    public List<RoomDto> switchRingerList(@PathVariable Long roomId){
+        Room room = roomDao.getOne(roomId);
+        room.getNoise().switchStatus();
+        return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
+    }
+
+    @PostMapping(value = "/{roomId}/switch/light/list", consumes = "application/json")
+    public List<RoomDto> switchLightList(@PathVariable Long roomId){
+        Room room = roomDao.getOne(roomId);
+        room.getNoise().switchStatus();
+        return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 
     @GetMapping(value = "/on")
