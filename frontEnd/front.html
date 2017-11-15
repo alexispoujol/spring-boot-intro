@@ -10,7 +10,37 @@
 </head>
 <body>
 
-<div id="app" class="container"><h3 class="text-center">List of Rooms</h3> <table class="table"><thead><tr><th scope="col">#</th> <th scope="col">Light Status</th> <th scope="col">Light Level</th> <th scope="col">Ringer status</th> <th scope="col">Noise Level</th> <th scope="col">Switch Light</th> <th scope="col">Switch Ringer</th></tr></thead> <tbody><form action=""></form> <tr><th scope="row">1</th> <td><div><img src="img/light-on.png"></div></td> <td>20</td> <td><div><img src="img/ringer-on.png"></div></td><td>30</td> <td><button class="btn btn-light"><img src="img/switch.png" width="20"></button></td> <td><button class="btn btn-light"><img src="img/switch.png" width="20"></button></td></tr><tr><th scope="row">2</th> <td><div><img src="img/light-off.png"></div></td> <td>10</td> <td><div><img src="img/ringer-off.png"></div></td><td>30</td> <td><button class="btn btn-light"><img src="img/switch.png" width="20"></button></td> <td><button class="btn btn-light"><img src="img/switch.png" width="20"></button></td></tr></tbody></table> <br></div>
+	<div id="app" class="container">
+		<h3 class="text-center">List of Rooms</h3>
+		<table class="table">
+		<thead><tr>
+			<th scope="col">#</th>
+			<th scope="col">Light Status</th>
+			<th scope="col">Light Level</th>
+			<th scope="col">Ringer status</th>
+			<th scope="col">Noise Level</th>
+			<th scope="col">Switch Light</th>
+			<th scope="col">Switch Ringer</th>
+		</tr></thead>
+		<tbody>
+			<tr v-for="room in rooms">
+				<td>{{room.id}}</td>
+				<td v-if="{{room.light.status}} == ON"><img src="img/light-on.png"></td>
+				<td v-if="{{room.light.status}} == OFF"><img src="img/light-off.png"></td>
+				<td>{{room.light.level}}</td>
+				<td v-if="{{room.noise.status}} == ON"><img src="img/ringer-on.png"></td>
+				<td v-if="{{room.noise.status}} == OFF"><img src="img/ringer-off.png"></td>
+				<td>{{room.noise.level}}</td>
+				<td><button class="bgtn btn-light" v-onclick="switchLight(room)">
+						<img src="img/switch.png" width="20">
+					</button></td>
+				<td><button class="bgtn btn-light" v-onclick="switchRinger(room)">
+					<img src="img/switch.png" width="20">
+					</button></td>
+				</tr>
+		</tbody>
+	</div>
+<script src="js/request.js">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
