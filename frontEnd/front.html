@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Room display</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+
+	<div id="app" class="container">
+		<h3 class="text-center">List of Rooms</h3>
+		<table class="table">
+		<thead><tr>
+			<th scope="col">#</th>
+			<th scope="col">Light Status</th>
+			<th scope="col">Light Level</th>
+			<th scope="col">Ringer status</th>
+			<th scope="col">Noise Level</th>
+			<th scope="col">Switch Light</th>
+			<th scope="col">Switch Ringer</th>
+		</tr></thead>
+		<tbody>
+			<tr v-for="room in rooms">
+				<td>{{room.id}}</td>
+				<td v-if="{{room.light.status}} == ON"><img src="img/light-on.png"></td>
+				<td v-if="{{room.light.status}} == OFF"><img src="img/light-off.png"></td>
+				<td>{{room.light.level}}</td>
+				<td v-if="{{room.noise.status}} == ON"><img src="img/ringer-on.png"></td>
+				<td v-if="{{room.noise.status}} == OFF"><img src="img/ringer-off.png"></td>
+				<td>{{room.noise.level}}</td>
+				<td><button class="bgtn btn-light" v-onclick="switchLight(room)">
+						<img src="img/switch.png" width="20">
+					</button></td>
+				<td><button class="bgtn btn-light" v-onclick="switchRinger(room)">
+					<img src="img/switch.png" width="20">
+					</button></td>
+				</tr>
+		</tbody>
+	</div>
+<script src="js/request.js">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/app.js"></script>
+
+
+
+</body>
+</html>
