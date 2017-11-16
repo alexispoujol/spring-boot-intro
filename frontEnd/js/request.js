@@ -11,18 +11,32 @@ const vm = new Vue({
             .then(response => {this.rooms = response.data});
     },
     methods: {
+
+    	
         switchLight(room) {
             this.selectedRoom = room;
             let post_url = heroku_url_api + "/" + room.id + "/switch/light/list";
             axios.post(post_url, {roomId: room.id})
                 .then(response => {this.rooms = response.data});
             },
+
+
         switchRinger(room) {
             this.selectedRoom = room;
             let post_url = heroku_url_api + "/" + room.id + "/switch/ringer/list";
             axios.post(post_url, {roomId: room.id})
                 .then(response => {this.rooms = response.data});
-        },
+            },
+
+
+        getLightOn() {
+            let post_url = heroku_url_api + "/on" ;
+            axios.post(post_url)
+                .then(response => {this.rooms = response.data});
+        	},
+
+
+        
 
     }
 });
