@@ -56,7 +56,7 @@ public class RoomController {
     @PostMapping(value = "/{roomId}/switch/light/list", consumes = "application/json")
     public List<RoomDto> switchLightList(@PathVariable Long roomId){
         Room room = roomDao.getOne(roomId);
-        room.getNoise().switchStatus();
+        room.getLight().switchStatus();
         return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 

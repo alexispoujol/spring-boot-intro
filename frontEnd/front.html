@@ -29,15 +29,15 @@
 					<div v-else-if="room.light.status == 'OFF'"><img src="img/light-off.png"></div>
 				</td>
 				<td>{{room.light.level}}</td>
-				<td><div v-if="room.noise.status == 'ON'"><img src="img/noise-on.png"></div>
-					<div v-else-if="room.noise.status == 'OFF'"><img src="img/noise-off.png"></div>
+				<td><div v-if="room.noise.status == 'ON'"><img src="img/ringer-on.png"></div>
+					<div v-else-if="room.noise.status == 'OFF'"><img src="img/ringer-off.png"></div>
 				</td>
 				<td>{{room.noise.level}}</td>
 				<td><button class="bgtn btn-light" @click="switchLight(room)">
-						<img src="img/switch.png" width="20">
+						<img src="img/switch.png" width="50">
 					</button></td>
 				<td><button class="bgtn btn-light" @click="switchRinger(room)">
-					<img src="img/switch.png" width="20">
+					<img src="img/switch.png" width="50">
 					</button></td>
 				</tr>
 			</form>	
