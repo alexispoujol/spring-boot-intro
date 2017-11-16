@@ -26,12 +26,12 @@
 			<form action="">
 			<tr v-for="room in rooms">
 				<th scope="row">{{room.id}}</th>
-				<td><div v-if="{{room.light.status}} == 'ON'"><img src="img/light-on.png"></div>
-					<div v-else-if="{{room.light.status}} == 'OFF'"><img src="img/light-off.png"></div>
+				<td><div v-if="room.light.status == 'ON'"><img src="img/light-on.png"></div>
+					<div v-else-if="room.light.status == 'OFF'"><img src="img/light-off.png"></div>
 				</td>
 				<td>{{room.light.level}}</td>
-				<td><div v-if="{{room.noise.status}} == 'ON'"><img src="img/noise-on.png"></div>
-					<div v-else-if="{{room.noise.status}} == 'OFF'"><img src="img/noise-off.png"></div>
+				<td><div v-if="room.noise.status == 'ON'"><img src="img/noise-on.png"></div>
+					<div v-else-if="room.noise.status == 'OFF'"><img src="img/noise-off.png"></div>
 				</td>
 				<td>{{room.noise.level}}</td>
 				<td><button class="bgtn btn-light" @click="switchLight(room)">
@@ -44,7 +44,7 @@
 			</form>	
 		</tbody>
 	</div>
-	
+
 	
 <script src="/js/request.js">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
