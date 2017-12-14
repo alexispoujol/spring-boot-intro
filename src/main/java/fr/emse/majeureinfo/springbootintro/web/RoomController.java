@@ -92,8 +92,7 @@ public class RoomController {
             sampleClient.disconnect();
             System.out.println("Disconnected");
             System.exit(0);
-        }
-        catch(MqttException me) {
+        } catch(MqttException me) {
             System.out.println("reason "+me.getReasonCode());
             System.out.println("msg "+me.getMessage());
             System.out.println("loc "+me.getLocalizedMessage());
