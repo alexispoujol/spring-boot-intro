@@ -37,9 +37,7 @@ public class Light {
         this.id = id;
     }
 
-    public Integer getLevel() {
-        return level;
-    }
+    public Integer getLevel() { return level; }
 
     public void setLevel(Integer level) {
         this.level = level;

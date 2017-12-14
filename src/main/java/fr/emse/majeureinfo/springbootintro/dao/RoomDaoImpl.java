@@ -16,7 +16,6 @@ public class RoomDaoImpl implements RoomDaoCustom {
     @Override
     public List<Room> findRoomWithOnLight() {
 
-
         String jpql = "select room from Room room where room.light.status = :value";
         TypedQuery<Room> query = em.createQuery(jpql, Room.class);
         return query.setParameter("value", Status.ON).getResultList();

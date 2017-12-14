@@ -1,7 +1,5 @@
 package fr.emse.majeureinfo.springbootintro.web;
 
-import fr.emse.majeureinfo.springbootintro.model.Light;
-import fr.emse.majeureinfo.springbootintro.model.Noise;
 import fr.emse.majeureinfo.springbootintro.model.Room;
 
 public class RoomDto {
