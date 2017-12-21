@@ -1,7 +1,6 @@
 
 package fr.emse.majeureinfo.springbootintro.model;
 
-import javax.lang.model.element.Name;
 import javax.persistence.*;
 import java.util.List;
 
@@ -48,6 +47,18 @@ public class Building {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public Room getRoom(Long id) {
+        Room roomid = new Room();
+
+        for (int i = 0; i < getRooms().size(); i++) {
+            if (getRooms().get(i).getId() == id) {
+                roomid = getRooms().get(i);
+            }
+        }
+        return roomid;
     }
 }
 

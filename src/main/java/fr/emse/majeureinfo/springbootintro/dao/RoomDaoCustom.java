@@ -8,6 +8,6 @@ import java.util.List;
 public interface RoomDaoCustom {
 
     List<Room> findRoomWithOnLight();
-
+    List<Room> findRoomWithOnNoise();
 }
 

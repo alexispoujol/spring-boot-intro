@@ -20,6 +20,8 @@ public class BuildingDto {
             this.rooms.add(new RoomDto(rooms.get(i)));
         }
     }
+
+
     public Long getId() {
         return id;
     }
