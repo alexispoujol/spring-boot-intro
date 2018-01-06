@@ -57,8 +57,6 @@ public class RoomController {
     public List<RoomDto> switchLightList(@PathVariable Long roomId){
         Room room = roomDao.getOne(roomId);
         room.getLight().switchStatus();
-
-
         return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 
