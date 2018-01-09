@@ -5,20 +5,19 @@ import fr.emse.majeureinfo.springbootintro.model.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BuildingDto {
     private final Long id;
     private final String name;
-    private final List<RoomDto> rooms = new ArrayList<RoomDto>();
+    private final List<RoomDto> rooms;
 
 
 
-    public BuildingDto(Building building, List<Room> rooms) {
+    public BuildingDto(Building building) {
         this.id = building.getId();
         this.name = building.getName();
-        for(int i = 0 ; i < rooms.size() ; i++) {
-            this.rooms.add(new RoomDto(rooms.get(i)));
-        }
+        this.rooms = building.getRooms() == null ? null : building.getRooms().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 
 

@@ -16,6 +16,10 @@ public class BuildingController {
     private final BuildingDao buildingDao;
     public BuildingController(BuildingDao buildingDao) { this.buildingDao = buildingDao; }
 
+    @GetMapping
+    public List<BuildingDto> list() {
+        return buildingDao.findAll().stream().map(BuildingDto::new).collect(Collectors.toList());
+    }
 
 
 }
